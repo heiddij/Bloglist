@@ -1,0 +1,10 @@
+post http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer I4ZTY4NjRhYTQ2YmNlMTZmNyIsImlhdCI6MTcwMDgzNjEyMX0.evQsIS2TL0nrRyqNC0NI2A-DeYI0xHAMcVkJsoI-mjQ
+
+{
+    "title": "Nyt Toimii",
+    "author": "HurjaPaa99",
+    "url": "jee.fi",
+    "likes": 7
+}
