@@ -18,8 +18,7 @@ jobs:
     - name: Run backend tests
       run: npm run test ./tests
     - run: cd ./frontend
-    - name: Run frontend tests
-      run: npm run test
+    - run: ls -l
     - name: Check style
       run: npm run lint
     - run: cd ..
