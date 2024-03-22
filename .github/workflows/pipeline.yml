@@ -17,9 +17,8 @@ jobs:
       run: npm install
     - name: Run backend tests
       run: npm run test ./tests
-    - run: cd ./frontend
-    - run: ls -l
-    - name: Check style
-      run: npm run lint
-    - run: cd ..
+    - run: |
+        cd ./frontend
+        ls -l
+        npm run lint
 
