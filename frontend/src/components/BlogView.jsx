@@ -10,7 +10,7 @@ const BlogView = ({ blogs, handleLike }) => {
 
   useEffect(() => {
     blogService.getComments(id).then((comments) => setComments(comments))
-  }, [])
+  }, [id])
 
   if (!blog) {
     return null
