@@ -15,5 +15,11 @@ jobs:
         node-version: '20'
     - name: Install dependencies
       run: npm install
+    - name: Run backend tests
+      run: npm run test ./tests
+    - run: cd ./frontend
+    - name: Run frontend tests
+      run: npm run test
     - name: Check style
       run: npm run lint
+    - run: cd ..
