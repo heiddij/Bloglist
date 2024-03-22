@@ -19,6 +19,5 @@ jobs:
       run: npm run test ./tests
     - run: |
         cd ./frontend
-        ls -l
         npm run lint
 
