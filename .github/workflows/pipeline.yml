@@ -17,8 +17,6 @@ jobs:
       run: npm install
     - name: Run backend tests
       run: npm run test ./tests
-    - name: start test server
-      run: npm run start:test
     - run: cd ./frontend
     - name: Run frontend tests
       run: npm run test
