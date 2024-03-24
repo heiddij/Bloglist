@@ -24,6 +24,8 @@ describe('Blog app', function () {
       cy.get('#password').type('jaska')
       cy.get('#login-button').click()
 
+      cy.wait(5000)
+
       cy.contains('Jaska Jokunen logged in')
     })
 
