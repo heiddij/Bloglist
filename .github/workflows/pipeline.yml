@@ -24,7 +24,7 @@ jobs:
           cd ./frontend
           npm run test:e2e
         start: npm run start:test
-        wait-on: http://localhost:3003 #/api/blogs ?
+        wait-on: http://localhost:5173
     - run: |
         cd ./frontend
         npm install
