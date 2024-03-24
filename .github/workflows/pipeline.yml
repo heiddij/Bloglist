@@ -27,6 +27,7 @@ jobs:
         npm run test
         cd ..
         npm run start:test &
+        timeout 60 bash -c 'until nc -z localhost 3003; do sleep 1; done'
     - name: e2e tests
       uses: cypress-io/github-action@v5
       with:
