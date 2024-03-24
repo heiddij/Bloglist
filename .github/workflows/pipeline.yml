@@ -22,6 +22,7 @@ jobs:
       with:
         command: |
           cd ./frontend
+          npm run dev
           npm run test:e2e
         start: npm run start:test
         wait-on: http://localhost:5173
