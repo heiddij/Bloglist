@@ -22,13 +22,13 @@ jobs:
         npm install
         npm run lint
         npm run test
-        npm run dev &
         cd ..
+        npm run start:test &
     - name: e2e tests
       uses: cypress-io/github-action@v5
       with:
         command: npm run test:e2e
-        start: npm run start:test
+        start: npm run dev
         wait-on: http://localhost:5173
         working-directory: ./frontend
 
