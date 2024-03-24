@@ -17,18 +17,19 @@ jobs:
       run: npm install
     - name: Run backend tests
       run: npm run test ./tests
-    - name: e2e tests
-      uses: cypress-io/github-action@v5
-      with:
-        command: |
-          cd ./frontend
-          npm run dev
-          npm run test:e2e
-        start: npm run start:test
-        wait-on: http://localhost:5173
     - run: |
         cd ./frontend
         npm install
         npm run lint
         npm run test
+        cd ..
+    - name: e2e tests
+      uses: cypress-io/github-action@v5
+      with:
+        command: npm run test:e2e
+        start: |
+          npm run start:test
+          cd ./frontend
+          npm run dev
+        wait-on: http://localhost:5173
 
