@@ -24,11 +24,14 @@ jobs:
         npm run test
         cd ..
         npm run start:test &
+    - name: Wait for server to start
+      run: |
+        timeout 60 bash -c 'until nc -z localhost 3003; do sleep 1; done'
     - name: e2e tests
       uses: cypress-io/github-action@v5
       with:
         command: npm run test:e2e
         start: npm run dev
-        wait-on: http://localhost:3003/api/blogs,http://localhost:5173
+        wait-on: http://localhost:3003,http://localhost:5173
         working-directory: ./frontend
 
