@@ -18,6 +18,11 @@ jobs:
         mongodb-version: '6.0'
     - name: Install dependencies
       run: npm install
+    - name: Run server
+      run: npm run start:test &
+      env: 
+        TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
     - name: Run backend tests
       run: npm run test ./tests
     - run: |
@@ -26,11 +31,6 @@ jobs:
         npm run lint
         npm run test
         cd ..
-    - name: Run server
-      run: npm run start:test &
-      env: 
-        TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
     - name: e2e tests
       uses: cypress-io/github-action@v5
       with:
