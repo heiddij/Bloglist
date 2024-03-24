@@ -13,6 +13,9 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: '20'
+    - uses: supercharge/mongodb-github-action@1.10.0
+      with:
+        mongodb-version: '6.0'
     - name: Install dependencies
       run: npm install
     - name: Run backend tests
@@ -24,9 +27,6 @@ jobs:
         npm run test
         cd ..
         npm run start:test &
-    - name: Wait for server to start
-      run: |
-        timeout 60 bash -c 'until nc -z localhost 3003; do sleep 1; done'
     - name: e2e tests
       uses: cypress-io/github-action@v5
       with:
